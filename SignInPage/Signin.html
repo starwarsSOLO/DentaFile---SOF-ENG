@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DentaFile | Sign In</title>
+  <link rel="stylesheet" href="Signin.css" />
+</head>
+<body>
+  <div class="signin-container">
+    <div class="signin-box">
+      <h1>DentaFile</h1>
+      <p>Comprehensive Dental Record Management System</p>
+
+      <form id="signin-form">
+        <div class="input-group">
+          <label for="email">📧 Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required />
+        </div>
+
+        <div class="input-group">
+          <label for="password">🔒 Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required />
+        </div>
+
+        <button type="submit" class="signin-btn">🚪 Sign In</button>
+      </form>
+
+      <div class="extra-options">
+        <p>Forgot your password? <a href="#">Reset here</a></p>
+        <p>Don’t have an account? <a href="../RegisterPage/Register.html">Register</a></p>
+      </div>
+
+      <button id="mode-toggle" class="mode-btn">🌙 Light Mode</button>
+    </div>
+
+    <div class="footer">
+      <p>© 2025 AQ Dental Clinic</p>
+    </div>
+  </div>
+
+  <script src="Signin.js"></script>
+</body>
+</html>

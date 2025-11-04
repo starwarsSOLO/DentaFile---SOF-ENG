@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DentaFile | Profile</title>
+  <link rel="stylesheet" href="Profile.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="user-section">
+        <h3 id="user-fullname">Guest</h3>
+      </div>
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const fullname = localStorage.getItem("fullname");
+          document.getElementById("user-fullname").textContent = fullname || "Guest";
+        });
+      </script>
+
+      <nav class="menu">
+        <a href="../Home Page/Home.html" class="menu-item">🏠 Home</a>
+        <a href="../PatientRecords/Patient.html" class="menu-item">🦷 Patient Records</a>
+        <a href="../Appointment/Appointment.html" class="menu-item">📅 Appointments</a>
+        <a href="../DentistsPage/Dentists.html" class="menu-item">👩‍⚕️ Dentists</a>
+        <a href="Profile.html" class="menu-item active">👤 Profile</a>
+      </nav>
+
+      <div class="bottom-menu">
+        <button class="menu-item" id="mode-toggle">🌙 Light Mode</button>
+        <a href="../SignInPage/Signin.html" class="menu-item">🚪 Sign Out</a>
+      </div>
+      <div class="logo">AQ Dental Clinic</div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content">
+      <header class="header">
+        <h1>User Profile</h1>
+        <p>View and manage your personal information</p>
+      </header>
+
+      <section class="profile-section">
+        <div class="profile-card">
+          <h2 id="profile-name">Loading...</h2>
+          <p id="profile-role">Loading...</p>
+          <button class="edit-btn" id="edit-profile-btn">✏️ Edit Profile</button>
+        </div>
+
+        <div class="info-card" id="info-card">
+          <h3>Personal Information</h3>
+
+          <div class="info-group">
+            <label for="input-fullname">Full Name:</label>
+            <span id="info-fullname">Loading...</span>
+            <input type="text" id="input-fullname" class="edit-input" placeholder="Enter your full name" title="Full Name" />
+          </div>
+
+          <div class="info-group">
+            <label for="input-email">Email:</label>
+            <span id="info-email">Loading...</span>
+            <input type="email" id="input-email" class="edit-input" placeholder="Enter your email" title="Email Address" />
+          </div>
+
+          <div class="info-group">
+            <label for="input-phone">Phone:</label>
+            <span id="info-phone">Loading...</span>
+            <input type="text" id="input-phone" class="edit-input" placeholder="Enter your phone number" title="Phone Number" />
+          </div>
+
+          <div class="info-group">
+            <label for="input-role">Role:</label>
+            <span id="info-role">Loading...</span>
+            <input type="text" id="input-role" class="edit-input" placeholder="Enter your role" title="Role" />
+          </div>
+
+          <button id="save-btn">💾 Save Changes</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="Profile.js"></script>
+</body>
+</html>

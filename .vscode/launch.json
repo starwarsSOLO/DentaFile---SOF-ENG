@@ -1,0 +1,53 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "DentaFile | Sign In",
+            "url": "http://localhost/DentaFile/SignInPage/Signin.html",
+            "webRoot": "${workspaceFolder}",
+            "runtimeExecutable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "DentaFile | Register",
+            "url": "http://localhost/DentaFile/RegisterPage/Register.html",
+            "webRoot": "${workspaceFolder}",
+            "runtimeExecutable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "DentaFile | Home",
+            "url": "http://localhost/DentaFile/HomePage/Home.html",
+            "webRoot": "${workspaceFolder}",
+            "runtimeExecutable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "DentaFile | Profile",
+            "url": "http://localhost/DentaFile/ProfilePage/Profile.html",
+            "webRoot": "${workspaceFolder}",
+            "runtimeExecutable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "DentaFile | Add Patient",
+            "url": "http://localhost/DentaFile/AddPatientPage/AddPatient.html",
+            "webRoot": "${workspaceFolder}",
+            "runtimeExecutable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "DentaFile | Patient Records",
+            "url": "http://localhost/DentaFile/PatientRecords/PatientRecord.html",
+            "webRoot": "${workspaceFolder}",
+            "runtimeExecutable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+        }
+    ]
+}

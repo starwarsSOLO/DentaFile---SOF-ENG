@@ -1,0 +1,179 @@
+/* Global reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Layout */
+body {
+  background-color: #f5f6fa;
+  color: #2c3e50;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #0a2342;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.user-section h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menu-item {
+  background: none;
+  border: none;
+  color: white;
+  text-align: left;
+  font-size: 15px;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+  text-decoration: none;
+  display: block;
+}
+
+.menu-item:hover,
+.menu-item.active {
+  background-color: #1e3a68;
+}
+
+.bottom-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.logo {
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* Main Content */
+.content {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+.header h1 {
+  color: #0a2342;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.header p {
+  color: #555;
+  margin-bottom: 25px;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+th {
+  background-color: #0a2342;
+  color: white;
+  font-weight: 500;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #e8f0fe;
+}
+
+/* Buttons in table */
+td button {
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  background-color: #0077ff;
+  color: white;
+  transition: 0.2s;
+}
+
+td button:hover {
+  background-color: #005fcc;
+}
+
+/* Simplified responsive adjustments */
+@media screen and (max-width: 768px) {
+  th, td {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+
+  td button {
+    padding: 5px 8px;
+    font-size: 12px;
+  }
+}
+
+/* Dark Mode */
+.dark-mode {
+  background-color: #1a1a1a;
+  color: #f5f6fa;
+}
+
+.dark-mode table {
+  background-color: #2c2c2c;
+  color: #f5f6fa;
+}
+
+.dark-mode th {
+  background-color: #0f172a;
+}
+
+.dark-mode tr:nth-child(even) {
+  background-color: #2c2c2c;
+}
+
+.dark-mode tr:hover {
+  background-color: #3a3a3a;
+}
+
+.dark-mode td button {
+  background-color: #3399ff;
+}
+
+.dark-mode td button:hover {
+  background-color: #1a73e8;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DentaFile | Dentist</title>
+  <link rel="stylesheet" href="Dentists.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="user-section">
+        <h3 id="user-fullname">Guest</h3>
+      </div>
+
+      <nav class="menu">
+        <a href="../Home Page/Home.html" class="menu-item">🏠 Home</a>
+        <a href="../PatientRecords/Patient.html" class="menu-item">🦷 Patient Records</a>
+        <a href="../Appointment/Appointment.html" class="menu-item">📅 Appointments</a>
+        <a href="../DentistsPage/Dentists.html" class="menu-item active">👩‍⚕️ Dentists</a>
+        <a href="../ProfilePage/Profile.html" class="menu-item">👤 Profile</a>
+      </nav>
+
+      <div class="bottom-menu">
+        <button class="menu-item" id="mode-toggle">🌙 Light Mode</button>
+        <a href="../SignInPage/Signin.html" class="menu-item">🚪 Sign Out</a>
+      </div>
+      <div class="logo">AQ Dental Clinic</div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content">
+      <header class="header">
+        <h1>Our Dentist</h1>
+        <p>Meet the professional dedicated to your oral health and confident smile.</p>
+      </header>
+
+      <section class="cards">
+        <div class="card">
+          <img src="Dentist.png" alt="Mrs. Quisaot" class="card-img" />
+          <h3>Dr. Quisaot</h3>
+          <p>Head Dentist of AQ Dental Clinic, specializing in Orthodontics and General Dentistry. With over 15 years of experience, she is dedicated to delivering quality and compassionate dental care to every patient.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const fullnameEl = document.getElementById("user-fullname");
+
+      try {
+        const response = await fetch("../ProfilePage/profile.php");
+        const data = await response.json();
+        fullnameEl.textContent = data.success ? data.user.fullname : "Guest";
+      } catch (err) {
+        console.error("Failed to fetch user info:", err);
+        fullnameEl.textContent = "Guest";
+      }
+
+      // Toggle Light/Dark Mode
+      const modeToggle = document.getElementById("mode-toggle");
+      modeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+        modeToggle.textContent = document.body.classList.contains("dark-mode")
+          ? "☀️ Dark Mode"
+          : "🌙 Light Mode";
+      });
+    });
+  </script>
+</body>
+</html>

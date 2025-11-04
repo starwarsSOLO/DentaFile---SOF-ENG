@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DentaFile | Appointments</title>
+  <link rel="stylesheet" href="Appointment.css" />
+  <style>
+    /* Visually hidden class for accessibility */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="user-section">
+        <h3 id="user-fullname">Guest</h3>
+      </div>
+      <nav class="menu">
+        <a href="../Home Page/Home.html" class="menu-item">🏠 Home</a>
+        <a href="../PatientRecords/Patient.html" class="menu-item">🦷 Patient Records</a>
+        <a href="../Appointment/Appointment.html" class="menu-item active">📅 Appointments</a>
+        <a href="../DentistsPage/Dentists.html" class="menu-item">👩‍⚕️ Dentists</a>
+        <a href="../ProfilePage/Profile.html" class="menu-item">👤 Profile</a>
+      </nav>
+      <div class="bottom-menu">
+        <button class="menu-item" id="mode-toggle">🌙 Light Mode</button>
+        <a href="../SignInPage/Signin.html" class="menu-item">🚪 Sign Out</a>
+      </div>
+      <div class="logo">AQ Dental Clinic</div>
+    </aside>
+
+    <!-- Content -->
+    <div class="content">
+      <div class="header">
+        <h1>Appointments</h1>
+        <p>Search and view patient appointments by date</p>
+      </div>
+
+      <div class="actions">
+        <!-- Search first -->
+        <input type="text" id="searchInput" placeholder="🔍 Search by patient name..." />
+        <!-- Then date -->
+        <label for="appointmentDate" class="sr-only">Select Appointment Date</label>
+        <input type="date" id="appointmentDate" aria-label="Select Appointment Date" />
+        <!-- Then view button -->
+        <button id="viewBtn">View Appointments</button>
+      </div>
+
+      <table id="appointmentTable">
+        <thead>
+          <tr>
+            <th>Patient Name</th>
+            <th>Service</th>
+            <th>Time</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Filled dynamically -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="Appointment.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DentaFile | Patient Records</title>
+  <link rel="stylesheet" href="Patient.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="user-section">
+        <h3 id="user-fullname">Guest</h3>
+      </div>
+      <nav class="menu">
+        <a href="../Home Page/Home.html" class="menu-item">🏠 Home</a>
+        <a href="Patient.html" class="menu-item active">🦷 Patient Records</a>
+        <a href="../Appointment/Appointment.html" class="menu-item">📅 Appointments</a>
+        <button class="menu-item">👩‍⚕️ Dentists</button>
+        <a href="../ProfilePage/Profile.html" class="menu-item">👤 Profile</a>
+      </nav>
+      <div class="bottom-menu">
+        <button class="menu-item" id="mode-toggle">🌙 Light Mode</button>
+        <a href="../SignInPage/Signin.html" class="menu-item">🚪 Sign Out</a>
+      </div>
+      <div class="logo">AQ Dental Clinic</div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content">
+      <header class="header">
+        <h1>Patient Records</h1>
+        <p>Manage and organize patient dental information efficiently.</p>
+      </header>
+
+      <div class="actions">
+        <input type="text" id="search" placeholder="🔍 Search by name..." />
+        <button id="addBtn">➕ Add Patient</button>
+      </div>
+
+      <table id="patientTable">
+        <thead>
+          <tr>
+            <th>Services</th>
+            <th>Patient Name</th>
+            <th>Age</th>
+            <th>Phone</th>
+            <th>Doctor</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Patients populated dynamically -->
+        </tbody>
+      </table>
+    </main>
+  </div>
+
+  <script src="PatientRecord.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      // Sidebar user info fetch
+      const fullnameEl = document.getElementById("user-fullname");
+      try {
+        const response = await fetch("../ProfilePage/profile.php");
+        const data = await response.json();
+        fullnameEl.textContent = data.success ? data.user.fullname : "Guest";
+      } catch (err) {
+        console.error("Failed to fetch user info:", err);
+        fullnameEl.textContent = "Guest";
+      }
+
+      // Add Patient Button
+      const addBtn = document.getElementById("addBtn");
+      addBtn.addEventListener("click", () => {
+        if (confirm("Do you want to add a new patient?")) {
+          window.location.href = "../AddPatientPage/AddPatient.html";
+        }
+      });
+    });
+  </script>
+</body>
+</html>

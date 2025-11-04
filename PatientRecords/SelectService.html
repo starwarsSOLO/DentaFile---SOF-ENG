@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DentaFile | Select Service</title>
+  <link rel="stylesheet" href="SelectService.css">
+</head>
+<body>
+<div class="container">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="user-section">
+      <h3 id="user-fullname">Guest</h3>
+    </div>
+    <nav class="menu">
+      <a href="../Home Page/Home.html" class="menu-item">🏠 Home</a>
+      <a href="../PatientRecord/Patient.html" class="menu-item active">🦷 Patient Records</a>
+      <a href="../Appointment/Appointment.html" class="menu-item">📅 Appointments</a>
+      <a href="../DentistsPage/Dentists.html" class="menu-item">👩‍⚕️ Dentists</a>
+      <a href="../ProfilePage/Profile.html" class="menu-item">👤 Profile</a>
+    </nav>
+    <div class="bottom-menu">
+      <button class="menu-item" id="mode-toggle">🌙 Light Mode</button>
+      <a href="../SignInPage/Signin.html" class="menu-item">🚪 Sign Out</a>
+    </div>
+    <div class="logo">AQ Dental Clinic</div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="content">
+    <header class="header">
+      <h1>Select Dental Service</h1>
+      <p id="patientInfo">Loading patient details...</p>
+    </header>
+
+    <table id="serviceTable">
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>Appointment Date</th>
+          <th>Appointment Time</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Services will be populated by JS -->
+      </tbody>
+    </table>
+  </main>
+</div>
+
+<script src="SelectService.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      // Sidebar user info fetch
+      const fullnameEl = document.getElementById("user-fullname");
+      try {
+        const response = await fetch("../ProfilePage/profile.php");
+        const data = await response.json();
+        fullnameEl.textContent = data.success ? data.user.fullname : "Guest";
+      } catch (err) {
+        console.error("Failed to fetch user info:", err);
+        fullnameEl.textContent = "Guest";
+      }
+    });
+  </script>
+</body>
+</html>

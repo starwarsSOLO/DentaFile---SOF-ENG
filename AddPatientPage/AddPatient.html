@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DentaFile | Add Patient</title>
+  <link rel="stylesheet" href="AddPatient.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="user-section">
+        <h3 id="user-fullname">Guest</h3>
+      </div>
+      <nav class="menu">
+        <a href="../Home Page/Home.html" class="menu-item">🏠 Home</a>
+        <a href="../PatientRecords/Patient.html" class="menu-item active">🦷 Patient Records</a>
+        <a href="../Appointment/Appointment.html" class="menu-item">📅 Appointments</a>
+        <a href="../DentistsPage/Dentists.html" class="menu-item">👩‍⚕️ Dentists</a>
+        <a href="../ProfilePage/Profile.html" class="menu-item">👤 Profile</a>
+      </nav>
+      <div class="bottom-menu">
+        <button class="menu-item" id="mode-toggle">🌙 Light Mode</button>
+        <a href="../SignInPage/Signin.html" class="menu-item">🚪 Sign Out</a>
+      </div>
+      <div class="logo">AQ Dental Clinic</div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content">
+      <header class="header">
+        <h1>Add Patient</h1>
+        <p class="subtitle">Fill in the patient's information below.</p>
+      </header>
+
+      <div class="create-container">
+        <div class="form-grid">
+          <div class="profile-section">
+            <div class="profile-pic"></div>
+            <button class="add-photo">+</button>
+          </div>
+
+          <div class="form-fields">
+            <!-- Doctor -->
+            <div class="row">
+              <label for="doctor">Doctor*</label>
+              <select id="doctor" name="doctor">
+                <option>Dr Quisaot</option>
+                <option>Dr Santos</option>
+              </select>
+            </div>
+
+            <!-- Name and Surname -->
+            <div class="row">
+              <label for="name">Name*</label>
+              <input type="text" id="name" name="name" placeholder="Enter first name" title="Enter patient's first name">
+
+              <label for="surname">Surname</label>
+              <input type="text" id="surname" name="surname" placeholder="Enter surname" title="Enter patient's surname">
+            </div>
+
+            <!-- Gender and Age -->
+            <div class="row">
+              <label>Gender*</label>
+              <div class="gender">
+                <label for="gender-male">
+                  <input type="radio" id="gender-male" name="gender" value="Male" checked> Male
+                </label>
+                <label for="gender-female">
+                  <input type="radio" id="gender-female" name="gender" value="Female"> Female
+                </label>
+              </div>
+
+              <label for="age">Age</label>
+              <input type="number" id="age" name="age" placeholder="Input number" title="Enter patient's age">
+            </div>
+
+            <!-- Birthday and Country -->
+            <div class="row">
+              <label for="birthday">Birthday*</label>
+              <input type="date" id="birthday" name="birthday" value="2000-01-01" title="Enter patient's birthday">
+
+              <label for="country">Country</label>
+              <input type="text" id="country" name="country" value="Philippines" readonly title="Country is Philippines">
+            </div>
+
+            <!-- Email and Phone -->
+            <div class="row">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="Enter email" title="Enter patient's email">
+
+              <label for="phone">Phone Number</label>
+              <input type="text" id="phone" name="phone" placeholder="Input phone number" title="Enter patient's phone number">
+            </div>
+
+            <!-- City -->
+            <div class="row">
+              <label for="city">City</label>
+              <input type="text" id="city" name="city" placeholder="Input city" title="Enter patient's city">
+            </div>
+
+            <!-- Medical History -->
+            <div class="row">
+              <label for="medicalHistory">Medical History</label>
+              <input type="text" id="medicalHistory" name="medicalHistory" placeholder="Please input Past Cases" title="Enter patient's past medical history">
+            </div>
+          </div>
+        </div>
+
+        <!-- Remarks -->
+        <div class="remarks-section">
+          <label for="remarks">Remarks</label>
+          <textarea id="remarks" name="remarks" placeholder="Please input the remarks" title="Enter any additional remarks"></textarea>
+        </div>
+
+        <!-- Buttons -->
+        <div class="buttons">
+          <button id="addBtn">Add</button>
+          <button id="cancelBtn">Cancel</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="AddPatient.js"></script>
+
+  <script>
+    // Sidebar user info fetch
+    document.addEventListener("DOMContentLoaded", async () => {
+      const fullnameEl = document.getElementById("user-fullname");
+      try {
+        const response = await fetch("../ProfilePage/profile.php");
+        const data = await response.json();
+        fullnameEl.textContent = data.success ? data.user.fullname : "Guest";
+      } catch (err) {
+        console.error("Failed to fetch user info:", err);
+        fullnameEl.textContent = "Guest";
+      }
+    });
+  </script>
+</body>
+</html>
